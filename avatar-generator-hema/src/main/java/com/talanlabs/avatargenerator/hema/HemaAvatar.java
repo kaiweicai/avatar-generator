@@ -28,10 +28,10 @@ public class HemaAvatar {
 		                         ElementInfo.of(HemaElementType.eye.name()),
 								ElementInfo.of(HemaElementType.face.name()),
 		                         ElementInfo.of(HemaElementType.clothe.name()));
-		elementRegistry.putGroup(ElementInfo.of(HemaElementType.backgroud.name()),ElementInfo.of(HemaElementType.arm.name()),
-		                         ElementInfo.of(HemaElementType.eye.name()),
-								ElementInfo.of(HemaElementType.face.name()),
-		                         ElementInfo.of(HemaElementType.clothe.name()));
+//		elementRegistry.putGroup(ElementInfo.of(HemaElementType.backgroud.name()),ElementInfo.of(HemaElementType.arm.name()),
+//		                         ElementInfo.of(HemaElementType.eye.name()),
+//								ElementInfo.of(HemaElementType.face.name()),
+//		                         ElementInfo.of(HemaElementType.clothe.name()));
 //		elementRegistry.putGroup(ElementInfo.of(HemaElementType.arm.name()), ElementInfo.of(HemaElementType.backgroud.name()),
 //		                         ElementInfo.of(HemaElementType.eye.name()),
 //								ElementInfo.of(HemaElementType.face.name()),
