@@ -13,10 +13,7 @@ import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class Avatar {
 
@@ -139,14 +136,28 @@ public class Avatar {
         int xmin = Integer.MAX_VALUE, ymin = Integer.MAX_VALUE, xmax = Integer.MIN_VALUE, ymax = Integer.MIN_VALUE;
         List<ImageInfo> imageInfos = new ArrayList<>();
         int groupCount = elementRegistry.getGroupCount(avatarInfo);
+        long code = avatarInfo.getCode();
+
         if (groupCount > 0) {
             int d = random.nextInt(groupCount);
+
             ElementInfo[] elements = elementRegistry.getGroup(avatarInfo, d);
+            int[] indexSlice = new int[elements.length];
+            Map<int[],Long> indexMap = new HashMap();
+            for (int i = 0;i< elements.length;i++){
+                int index = (int)(code%1000l%(long)elements.length);
+                indexSlice[i] = index;
+            }
+            System.out.println("code is:"+code);
+            indexMap.put(indexSlice,code);
+            int i = 0;
             if (elements != null && elements.length > 0) {
                 for (ElementInfo element : elements) {
                     int elementCount = elementRegistry.getElementCount(avatarInfo, element.name);
                     if (elementCount > 0) {
-                        int index = random.nextInt(elementCount);
+                        //根据index获取element的位置。
+//                        int index = random.nextInt(elementCount);
+                        int index = indexSlice[i];
                         BufferedImage bufferedImage = AvatarUtils.toARGBImage(elementRegistry.getElement(avatarInfo, element.name, index));
 
                         xmin = Math.min(xmin, -bufferedImage.getWidth() / 2 + element.offsetX);
@@ -156,6 +167,7 @@ public class Avatar {
 
                         imageInfos.add(new ImageInfo(element.name, bufferedImage, element.offsetX, element.offsetY));
                     }
+                    i++;
                 }
             }
         }
@@ -319,7 +331,6 @@ public class Avatar {
     }
 
     private class MyAvatarInfo implements IAvatarInfo {
-
         private long code;
         private Random random;
 

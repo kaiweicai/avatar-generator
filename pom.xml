@@ -195,6 +195,7 @@
 				<module>avatar-generator-cat</module>
 				<module>avatar-generator-smiley</module>
 				<module>avatar-generator-8bit</module>
+				<module>avatar-generator-hema</module>
 				<module>sample</module>
 			</modules>
 		</profile>
@@ -203,6 +204,7 @@
 			<modules>
 				<module>avatar-generator</module>
 				<module>avatar-generator-cat</module>
+				<module>avatar-generator-hema</module>
 				<module>avatar-generator-smiley</module>
 				<module>avatar-generator-8bit</module>
 			</modules>

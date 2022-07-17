@@ -5,6 +5,7 @@ import com.talanlabs.avatargenerator.SquareAvatar;
 import com.talanlabs.avatargenerator.TriangleAvatar;
 import com.talanlabs.avatargenerator.cat.CatAvatar;
 import com.talanlabs.avatargenerator.eightbit.EightBitAvatar;
+import com.talanlabs.avatargenerator.hema.HemaAvatar;
 import com.talanlabs.avatargenerator.layers.backgrounds.RandomColorPaintBackgroundLayer;
 import com.talanlabs.avatargenerator.layers.masks.RoundRectMaskLayer;
 import com.talanlabs.avatargenerator.layers.others.ShadowLayer;
@@ -18,27 +19,29 @@ import java.util.Random;
 public class MultiMain {
 
 	public static void main(String[] args) {
-		int size = 64;
+		int size = 128;
 		Avatar[] avatars = new Avatar[]{
-				IdenticonAvatar.newAvatarBuilder().size(size, size).build(),
-				GitHubAvatar.newAvatarBuilder().size(size, size).build(),
-				GitHubAvatar.newAvatarBuilder(396, 5).size(size, size).build(),
-
-				CatAvatar.newAvatarBuilder().size(size, size).build(),
-				CatAvatar.newAvatarBuilder().size(size, size)
-						.layers(new ShadowLayer(), new RandomColorPaintBackgroundLayer(), new RoundRectMaskLayer())
-						.padding(4).margin(4).build(),
-				SmileyAvatar.newAccessoriesAvatarBuilder().size(size, size).build(),
-				SmileyAvatar.newEyeMouthAvatarBuilder().size(size, size).build(),
-				SmileyAvatar.newGhostAvatarBuilder().size(size, size).build(),
-				SmileyAvatar.newDefaultAvatarBuilder().size(size, size).build(),
-				EightBitAvatar.newMaleAvatarBuilder().size(size, size).build(),
-				EightBitAvatar.newFemaleAvatarBuilder().size(size, size).build(),
-				TriangleAvatar.newAvatarBuilder().size(size, size).build(),
-				SquareAvatar.newAvatarBuilder().size(size, size).build()
+//				IdenticonAvatar.newAvatarBuilder().size(size, size).build(),
+//				GitHubAvatar.newAvatarBuilder().size(size, size).build(),
+//				GitHubAvatar.newAvatarBuilder(396, 5).size(size, size).build(),
+//
+//				CatAvatar.newAvatarBuilder().size(size, size).build(),
+//				CatAvatar.newAvatarBuilder().size(size, size)
+//						.layers(new ShadowLayer(), new RandomColorPaintBackgroundLayer(), new RoundRectMaskLayer())
+//						.padding(4).margin(4).build(),
+//				SmileyAvatar.newAccessoriesAvatarBuilder().size(size, size).build(),
+//				SmileyAvatar.newEyeMouthAvatarBuilder().size(size, size).build(),
+//				SmileyAvatar.newGhostAvatarBuilder().size(size, size).build(),
+//				SmileyAvatar.newDefaultAvatarBuilder().size(size, size).build(),
+//				EightBitAvatar.newMaleAvatarBuilder().size(size, size).build(),
+//				EightBitAvatar.newFemaleAvatarBuilder().size(size, size).build(),
+				HemaAvatar.newAvatarBuilder().size(size, size).build(),
+				HemaAvatar.newAvatarBuilder().size(size, size).build(),
+//				TriangleAvatar.newAvatarBuilder().size(size, size).build(),
+//				SquareAvatar.newAvatarBuilder().size(size, size).build()
 		};
 
-		int w = 16;
+		int w = 6;
 		int h = 6;
 		BufferedImage dest = new BufferedImage(size * w, size * h, BufferedImage.TYPE_INT_ARGB);
 		Graphics2D g2 = dest.createGraphics();

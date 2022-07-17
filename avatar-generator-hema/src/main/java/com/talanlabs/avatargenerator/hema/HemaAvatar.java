@@ -1,4 +1,4 @@
-package com.talanlabs.avatargenerator.cat;
+package com.talanlabs.avatargenerator.hema;
 
 import com.talanlabs.avatargenerator.Avatar;
 import com.talanlabs.avatargenerator.element.ElementInfo;
@@ -24,16 +24,23 @@ public class HemaAvatar {
 					.lsPngURLs(HemaAvatar.class.getClassLoader(), hemaElementType.path));
 		}
 
-		elementRegistry.putGroup(ElementInfo.of(CatElementType.body.name()), ElementInfo.of(CatElementType.fur.name()),
-		                         ElementInfo.of(CatElementType.eyes.name()),
-		                         ElementInfo.of(CatElementType.mouth.name()));
-		elementRegistry.putGroup(ElementInfo.of(CatElementType.body.name()), ElementInfo.of(CatElementType.fur.name()),
-		                         ElementInfo.of(CatElementType.eyes.name()),
-		                         ElementInfo.of(CatElementType.mouth.name()),
-		                         ElementInfo.of(CatElementType.accessorie.name()));
-		elementRegistry.putGroup(ElementInfo.of(CatElementType.body.name()), ElementInfo.of(CatElementType.fur.name()),
-		                         ElementInfo.of(CatElementType.eyes.name()),
-		                         ElementInfo.of(CatElementType.mouth.name()), ElementInfo.of(CatElementType.zz.name()));
+		elementRegistry.putGroup(ElementInfo.of(HemaElementType.backgroud.name()),ElementInfo.of(HemaElementType.arm.name()),
+		                         ElementInfo.of(HemaElementType.eye.name()),
+								ElementInfo.of(HemaElementType.face.name()),
+		                         ElementInfo.of(HemaElementType.clothe.name()));
+		elementRegistry.putGroup(ElementInfo.of(HemaElementType.backgroud.name()),ElementInfo.of(HemaElementType.arm.name()),
+		                         ElementInfo.of(HemaElementType.eye.name()),
+								ElementInfo.of(HemaElementType.face.name()),
+		                         ElementInfo.of(HemaElementType.clothe.name()));
+//		elementRegistry.putGroup(ElementInfo.of(HemaElementType.arm.name()), ElementInfo.of(HemaElementType.backgroud.name()),
+//		                         ElementInfo.of(HemaElementType.eye.name()),
+//								ElementInfo.of(HemaElementType.face.name()),
+//		                         ElementInfo.of(HemaElementType.clothe.name()));
+//		elementRegistry.putGroup(ElementInfo.of(HemaElementType.arm.name()), ElementInfo.of(HemaElementType.backgroud.name()),
+//		                         ElementInfo.of(HemaElementType.eye.name()),
+//								ElementInfo.of(HemaElementType.face.name()),
+//		                         ElementInfo.of(HemaElementType.clothe.name()));
+
 
 		return elementRegistry;
 	}
