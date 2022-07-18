@@ -143,17 +143,27 @@ public class Avatar {
 
             ElementInfo[] elements = elementRegistry.getGroup(avatarInfo, d);
             int[] indexSlice = new int[elements.length];
-            int i = 0;
-            Map<int[],Long> indexMap = new HashMap();
 
+            Map<int[],Long> indexMap = new HashMap();
+            int j = 0;
+            for (ElementInfo element : elements) {
+                int elementCount = elementRegistry.getElementCount(avatarInfo, element.name);
+                if (elementCount > 0) {
+                    int index = (int)(code%1000l%(long)elementCount);
+                    indexSlice[j] = index;
+                }
+                j++;
+            }
+            indexMap.put(indexSlice,code);
+
+            int i = 0;
             if (elements != null && elements.length > 0) {
                 for (ElementInfo element : elements) {
                     int elementCount = elementRegistry.getElementCount(avatarInfo, element.name);
                     if (elementCount > 0) {
                         //根据index获取element的位置。
 //                        int index = random.nextInt(elementCount);
-                        int index = (int)(code%1000l%(long)elementCount);
-                        indexSlice[i] = index;
+                        int index = indexSlice[i];
                         BufferedImage bufferedImage = AvatarUtils.toARGBImage(elementRegistry.getElement(avatarInfo, element.name, index));
 
                         xmin = Math.min(xmin, -bufferedImage.getWidth() / 2 + element.offsetX);
@@ -165,7 +175,6 @@ public class Avatar {
                     }
                     i++;
                 }
-                indexMap.put(indexSlice,code);
             }
         }
         int w = xmax - xmin;
